@@ -11,17 +11,15 @@ const signIn = function (data) {
     data: data
   })
 }
-/*
+
 const signUp = function (data) {
   return $.ajax({
     method: 'POST',
-    // update includes a / and an id at the end
     url: `${config.apiUrl}/sign-up`,
-    // send the formData when making our update request
     data: data
   })
 }
-
+/*
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
@@ -48,8 +46,8 @@ const signOut = function (data) {
 }
 */
 module.exports = {
-  signIn
-//   signUp,
+  signIn,
+  signUp
 //   changePassword,
 //   signOut
 }

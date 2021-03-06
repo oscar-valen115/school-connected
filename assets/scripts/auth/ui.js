@@ -14,11 +14,21 @@ const signInFailure = function () {
   $('#error-message').text('Sign in failed, please try again')
 }
 
+const signUpSuccess = function (response) {
+  $('#error-message').text('Thank you for signing up!')
+  $('#sign-up').hide()
+  $('#logged-in-user').show()
+}
+
+const signUpFailure = function (response) {
+  $('#error-message').text('Sign up failed, please try again')
+}
+
 module.exports = {
   signInSuccess,
-  signInFailure
-  // signUpSuccess,
-  // signUpFailure,
+  signInFailure,
+  signUpSuccess,
+  signUpFailure
   // changePasswordSuccess,
   // changePasswordFailure,
   // signOutSuccess,
