@@ -1,13 +1,11 @@
 const config = require('../config')
-// const store = require('./../store')
+const store = require('./../store')
 
 const signIn = function (data) {
+  console.log('Data for api signIn', data)
   return $.ajax({
     method: 'POST',
     url: `${config.apiUrl}/sign-in`,
-    // headers: {
-    //   Authorization: `Bearer ${store.user.token}`
-    // },
     data: data
   })
 }
@@ -19,7 +17,7 @@ const signUp = function (data) {
     data: data
   })
 }
-/*
+
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
@@ -33,6 +31,7 @@ const changePassword = function (data) {
   })
 }
 
+/*
 const signOut = function (data) {
   return $.ajax({
     method: 'DELETE',
@@ -47,7 +46,7 @@ const signOut = function (data) {
 */
 module.exports = {
   signIn,
-  signUp
-//   changePassword,
+  signUp,
+  changePassword
 //   signOut
 }

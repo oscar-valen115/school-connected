@@ -1,7 +1,5 @@
 const api = require('./api')
-
 const ui = require('./ui')
-
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignIn = function (event) {
@@ -24,7 +22,7 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-/*
+
 const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
@@ -35,6 +33,7 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+/*
 const onSignOut = function (event) {
   event.preventDefault()
   const form = event.target
@@ -45,9 +44,10 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 */
+
 module.exports = {
   onSignIn,
-  onSignUp
-//   onChangePassword,
+  onSignUp,
+  onChangePassword
 //   onSignOut
 }
