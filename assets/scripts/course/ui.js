@@ -8,8 +8,8 @@ const getCoursesSuccess = function (event) {
     courseCreation += `
     <div class="card mb-4" data-id=${course._id}>
     <div class="card-body">
-      <button type="submit" data-toggle="modal" data-target="update-course" class="btn btn-secondary btn-sm update-course" data-id=${course._id}>Edit</button>
-      <button type="button" data-toggle="modal" data-target="exampleModal" class="btn btn-danger btn-sm course-delete" data-id=${course._id}> Delete</button>
+      <button type="submit" data-toggle="modal" data-target="#updateModal" class="btn btn-secondary btn-sm update-course" data-id=${course._id}>Edit</button>
+      <button type="button" data-toggle="modal" data-target="#"exampleModal" class="btn btn-danger btn-sm course-delete" data-id=${course._id}> Delete</button>
       <h2 class="card-title">${course.title}</h2>
       <p class="card-text">${course.body}</p>
     </div>

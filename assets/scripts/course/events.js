@@ -20,8 +20,10 @@ const onGetCourses = function (event) {
 }
 const onUpdateCourse = function (event) {
   event.preventDefault()
-  const id = event.target.dataset.id
-  api.updateCourse(id)
+  const form = event.target
+  const data = getFormFields(form)
+  console.log('data event: ',data)
+  api.updateCourse(data, data.course.id)
     .then(ui.onUpdateCourseSuccessful)
     .catch(ui.onUpdateCourseFailure)
 }

@@ -43,8 +43,5 @@ $(() => {
   $('#nav-view-courses').on('click', courseEvents.onGetCourses)
 
   $('#update-course-modal').on('submit', courseEvents.onUpdateCourse)
-  $('#update-course-modal').on('submit', function (event) {
-    console.log('clicked event', event)
-  })
   $('#course-posts-frame').on('click', '.course-delete', courseEvents.onDeleteCourse)
 })
