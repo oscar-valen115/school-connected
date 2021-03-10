@@ -1,14 +1,15 @@
 const store = require('./../store')
-// const courseApi = require('../course/api')
 
 const signInSuccess = function (response) {
   store.user = response.user
+  // $('#' + id).trigger('reset')
   $('#sign-in-card').hide()
-  $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password').show()
+  $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').show()
   $('#logged-in-user').show()
-  console.log('store data: ', store)
-
+  // $('#course-posts').show()
+  // $('#create-daily-assignment-posts').hide()
   // $('#change-password-card').show()
+  $('form').trigger('reset')
 }
 
 const signInFailure = function () {
@@ -17,6 +18,7 @@ const signInFailure = function () {
 
 const signUpSuccess = function (response) {
   $('#error-message').text('Thank you for signing up!')
+  $('form').trigger('reset')
   $('#sign-up-card').hide()
   $('#logged-in-user').show()
 }
@@ -27,11 +29,19 @@ const signUpFailure = function (response) {
 
 const changePasswordSuccess = function (response) {
   $('#change-password-card').hide()
-  $('#change-password').trigger('reset')
+  $('form').trigger('reset')
   $('#logged-in-user').show()
 }
 const changePasswordFailure = function (response) {
   $('#error-message').text('Password change failed!')
+}
+
+const signOutSuccess = function (response) {
+  $('#sign-in-card').show()
+}
+
+const signOutFailure = function (response) {
+  console.log('Failed to sign out, try again')
 }
 
 module.exports = {
@@ -40,7 +50,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   changePasswordSuccess,
-  changePasswordFailure
-  // signOutSuccess,
-  // signOutFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }

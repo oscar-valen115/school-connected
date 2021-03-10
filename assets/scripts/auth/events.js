@@ -22,7 +22,6 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-
 const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
@@ -33,7 +32,6 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-/*
 const onSignOut = function (event) {
   event.preventDefault()
   const form = event.target
@@ -43,11 +41,10 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-*/
 
 module.exports = {
   onSignIn,
   onSignUp,
-  onChangePassword
-//   onSignOut
+  onChangePassword,
+  onSignOut
 }

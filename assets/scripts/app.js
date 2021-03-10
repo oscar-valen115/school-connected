@@ -1,45 +1,48 @@
 'use strict'
 
 const authEvents = require('./auth/events')
+const courseEvents = require('./course/events')
 
 $(() => {
   // Authentication Events
-  $('#nav-resources, #nav-courses, #nav-profile, #nav-create-course, #nav-change-password').hide()
+  $('#nav-resources, #nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').hide()
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
-
   // $('#sign-in-card').hide()
-
-  // Logged in events
   $('#logged-in-user').hide()
-  $('#course-posts').hide()
-  // $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
+  $('#course-posts-frame').hide()
+  $('#create-daily-assignment-posts').hide()
 
   // From sign-in-card, click sign-up-button to sign up for existing users
   $('#sign-up-button').on('click', function (event) {
     event.preventDefault()
     $('#sign-in-card').hide()
     $('#sign-up-card').show()
-
-    // Logged in events
-    // $('body').on('click', '#change-password', function (event) {
-    //   console.log('click event details: ', event)
-    //   console.log('click event target details: ', event.target)
-    // })
-    // $('nav').on('click', '#nav-change-password', function (event) {
-    //   console.log('clicked event : ', event)
-    //   console.log('clicked event Target : ', event.target)
-    // })
-    $('nav').on('click', '#nav-change-password', function (event) {
-      console.log('event info: ', event)
-      console.log('event target info: ', event.target)
-      $('logged-in-user').hide()
-      $('#sign-up-card').show()
-    })
-
   })
+  $('#sign-in-button').on('click', function (event) {
+    event.preventDefault()
+    $('#sign-up-card').hide()
+    $('#sign-in-card').show()
+  })
+  $('#daily-assignment-posts').hide()
+  // nav events
+  $('#nav-change-password').on('click', function (event) {
+    event.preventDefault()
+    $('logged-in-user').hide()
+    $('#course-posts-frame').hide()
+    $('#overdue-sidebar').hide()
+    $('#upcoming-sidebar').hide()
+    $('#change-password-card').show()
+  })
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#nav-sign-out').on('click', authEvents.onSignOut)
+  $('#create-course-modal').on('submit', courseEvents.onCreateCourse)
+  $('#nav-view-courses').on('click', courseEvents.onGetCourses)
+
+  $('.update-course-modal').on('click', '#update-course-button', courseEvents.onUpdateCourse)
+  $('#course-posts-frame').on('click', '.course-delete', courseEvents.onDeleteCourse)
 
   // From sign-up-card, click sign-in-button to sign in for existing users
   // $('#sign-in-button').on('click', function (event) {
@@ -47,6 +50,4 @@ $(() => {
   //   $('#sign-up-card').hide()
   //   $('#sign-in-card').show()
   // })
-
-  // Logged in user events
 })
