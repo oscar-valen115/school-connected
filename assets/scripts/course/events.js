@@ -2,7 +2,6 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
-// const config = require('../config')
 
 const onCreateCourse = function (event) {
   event.preventDefault()

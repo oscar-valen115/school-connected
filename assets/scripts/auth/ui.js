@@ -9,7 +9,8 @@ const signInSuccess = function (response) {
   // $('#course-posts').show()
   // $('#create-daily-assignment-posts').hide()
   // $('#change-password-card').show()
-  $('form').trigger('reset')
+  $('#daily-assignment-posts').show()
+  $('form').trigger('reset') 
 }
 
 const signInFailure = function () {

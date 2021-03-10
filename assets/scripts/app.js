@@ -36,18 +36,15 @@ $(() => {
     $('#upcoming-sidebar').hide()
     $('#change-password-card').show()
   })
+
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#nav-sign-out').on('click', authEvents.onSignOut)
   $('#create-course-modal').on('submit', courseEvents.onCreateCourse)
   $('#nav-view-courses').on('click', courseEvents.onGetCourses)
 
-  $('.update-course-modal').on('click', '#update-course-button', courseEvents.onUpdateCourse)
+  $('#update-course-modal').on('submit', courseEvents.onUpdateCourse)
+  $('#update-course-modal').on('submit', function (event) {
+    console.log('clicked event', event)
+  })
   $('#course-posts-frame').on('click', '.course-delete', courseEvents.onDeleteCourse)
-
-  // From sign-up-card, click sign-in-button to sign in for existing users
-  // $('#sign-in-button').on('click', function (event) {
-  //   event.preventDefault()
-  //   $('#sign-up-card').hide()
-  //   $('#sign-in-card').show()
-  // })
 })
