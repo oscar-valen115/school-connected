@@ -1,44 +1,39 @@
 const store = require('./../store')
+const authMessages = require('./authMessages')
+const display = require('../display/display')
 
 const signInSuccess = function (response) {
   store.user = response.user
-  // $('#' + id).trigger('reset')
-  $('#sign-in-card').hide()
-  $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').show()
-  $('#logged-in-user').show()
-  // $('#course-posts').show()
-  // $('#create-daily-assignment-posts').hide()
-  // $('#change-password-card').show()
-  $('#daily-assignment-posts').show()
-  $('form').trigger('reset') 
+  $('form').trigger('reset')
+  display.homePage()
+  authMessages.signInSuccess()
 }
 
 const signInFailure = function () {
-  $('#error-message').text('Sign in failed, please try again')
+  authMessages.signInFailure()
 }
 
 const signUpSuccess = function (response) {
   $('#error-message').text('Thank you for signing up!')
   $('form').trigger('reset')
-  $('#sign-up-card').hide()
-  $('#logged-in-user').show()
+  display.homePage()
 }
 
 const signUpFailure = function (response) {
-  $('#error-message').text('Sign up failed, please try again')
+  authMessages.signInFailure()
 }
 
 const changePasswordSuccess = function (response) {
-  $('#change-password-card').hide()
   $('form').trigger('reset')
-  $('#logged-in-user').show()
+  display.homePage()
+  authMessages.changePwSuccess()
 }
 const changePasswordFailure = function (response) {
-  $('#error-message').text('Password change failed!')
+  authMessages.changePwFailure()
 }
 
 const signOutSuccess = function (response) {
-  $('#sign-in-card').show()
+  display.signInPage()
 }
 
 const signOutFailure = function (response) {

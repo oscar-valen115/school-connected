@@ -1,4 +1,6 @@
 const store = require('./../store')
+const display = require('../display/display')
+const courseMessage = require('./courseMessages')
 // const moment = require('moment')
 
 const getCoursesSuccess = function (event) {
@@ -6,10 +8,10 @@ const getCoursesSuccess = function (event) {
   let courseCreation = ''
   store.courses.forEach(course => {
     courseCreation += `
-    <div class="card mb-4" data-id=${course._id}>
+    <div class="card mb-4" id="updateCard" data-id=${course._id}>
     <div class="card-body">
       <button type="submit" data-toggle="modal" data-target="#updateModal" class="btn btn-secondary btn-sm update-course" data-id=${course._id}>Edit</button>
-      <button type="button" data-toggle="modal" data-target="#"exampleModal" class="btn btn-danger btn-sm course-delete" data-id=${course._id}> Delete</button>
+      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm course-delete" data-id=${course._id}> Delete</button>
       <h2 class="card-title">${course.title}</h2>
       <p class="card-text">${course.body}</p>
     </div>
@@ -20,8 +22,7 @@ const getCoursesSuccess = function (event) {
   </div>
    `
   })
-  $('#daily-assignment-posts').hide()
-  $('#course-posts-frame').show()
+  display.viewCoursesPage()
   $('#course-posts-frame').html(courseCreation)
 }
 
@@ -31,30 +32,31 @@ const getCoursesFailure = function (event) {
 }
 
 const createCourseSuccess = function (event) {
-  console.log('success!!!', event)
-  console.log('Event Target Data: ', event.target)
   $('form').trigger('reset')
+  // $('#createCourseModal').modal('toggle')
+  courseMessage.createCourseSuccess()
 }
 const createCourseFailure = function (event) {
+  courseMessage.createCourseFailure()
+}
+
+const UpdateCourseSuccess = function (event) {
   event.preventDefault()
-  console.log('Failed, try again!!!', event)
+  $('#createCourseModal').modal('toggle')
+  $('#createCourseModal').modal('hide')
+  courseMessage.updateCourseSuccess()
 }
 
-const onUpdateCourseSuccess = function (event) {
-  event.preventDefault()
-  console.log('Course updated!')
+const UpdateCourseFailure = function () {
+  courseMessage.updateCourseFailure()
 }
 
-const onUpdateCourseFailure = function () {
-  console.log('Course update failed, please try again!')
+const DeleteCourseSuccess = function (event) {
+  courseMessage.deleteCourseSuccess()
 }
 
-const onDeleteCourseSuccess = function (event) {
-  console.log('course deleted successfully!')
-}
-
-const onDeleteCourseFailure = function () {
-  console.log('course deletion Failed!, please try again')
+const DeleteCourseFailure = function () {
+  courseMessage.deleteCourseFailure()
 }
 
 module.exports = {
@@ -62,8 +64,8 @@ module.exports = {
   createCourseFailure,
   getCoursesSuccess,
   getCoursesFailure,
-  onUpdateCourseSuccess,
-  onUpdateCourseFailure,
-  onDeleteCourseSuccess,
-  onDeleteCourseFailure
+  UpdateCourseSuccess,
+  UpdateCourseFailure,
+  DeleteCourseSuccess,
+  DeleteCourseFailure
 }

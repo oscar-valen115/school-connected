@@ -22,10 +22,10 @@ const onUpdateCourse = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log('data event: ',data)
+  console.log('data event: ', data)
   api.updateCourse(data, data.course.id)
-    .then(ui.onUpdateCourseSuccessful)
-    .catch(ui.onUpdateCourseFailure)
+    .then(ui.UpdateCourseSuccessful)
+    .catch(ui.UpdateCourseFailure)
 }
 
 const onDeleteCourse = function (event) {
@@ -33,8 +33,8 @@ const onDeleteCourse = function (event) {
   console.log('event data: ', event)
   const id = event.target.dataset.id
   api.deleteCourse(id)
-    .then(ui.onDeleteCourseSuccess)
-    .catch(ui.onDeleteCourseFailure)
+    .then(ui.DeleteCourseSuccess)
+    .catch(ui.DeleteCourseFailure)
 }
 /*
 const onShowCourse = function (event) {
@@ -43,6 +43,7 @@ const onShowCourse = function (event) {
   const courseData = getFormFields(course)
 }
 */
+
 module.exports = {
   onCreateCourse,
   onGetCourses,
