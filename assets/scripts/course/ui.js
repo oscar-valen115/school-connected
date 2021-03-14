@@ -7,7 +7,6 @@ const getCoursesSuccess = function (event) {
   store.courses = event.courses
   console.log('store courses info: ', store.courses)
   let courseCreation = ''
-  let courseModalData = ''
   store.courses.forEach(course => {
     courseCreation += `
     <div class="card mb-4" id="updateCard" data-id=${course._id}>
@@ -39,6 +38,7 @@ const createCourseSuccess = function (event) {
   // $('#createCourseModal').modal('toggle')
   courseMessage.createCourseSuccess()
 }
+
 const createCourseFailure = function (event) {
   courseMessage.createCourseFailure()
 }
@@ -53,9 +53,9 @@ const updateCourseFailure = function () {
   courseMessage.updateCourseFailure()
 }
 
-const deleteCourseSuccess = function (event) {
+const deleteCourseSuccess = function () {
   courseMessage.deleteCourseSuccess()
-}
+} 
 
 const deleteCourseFailure = function () {
   courseMessage.deleteCourseFailure()

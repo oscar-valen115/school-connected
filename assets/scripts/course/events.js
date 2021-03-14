@@ -30,12 +30,10 @@ const onUpdateCourse = function (event) {
 
 const onDeleteCourse = function (event) {
   event.preventDefault()
-  console.log('event data: ', event)
-  console.log('Event Data Attribute info: ', event.data.id)
-  const id = event.target.dataset.id
+  const id = $(event.target).data('id')
   api.deleteCourse(id)
-    .then(ui.DeleteCourseSuccess)
-    .catch(ui.DeleteCourseFailure)
+    .then(ui.deleteCourseSuccess)
+    .catch(ui.deleteCourseFailure)
 }
 /*
 const onShowCourse = function (event) {

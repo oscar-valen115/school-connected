@@ -13,31 +13,36 @@ const signInFailure = function () {
   authMessages.signInFailure()
 }
 
-const signUpSuccess = function (response) {
+const signUpSuccess = function () {
   $('form').trigger('reset')
+  $('#sign-up-card').hide()
   display.homePage()
   authMessages.signUpSuccess()
 }
 
-const signUpFailure = function (response) {
-  authMessages.signInFailure()
+const signUpFailure = function () {
+  authMessages.signUpFailure()
 }
 
-const changePasswordSuccess = function (response) {
+const changePasswordSuccess = function () {
   $('form').trigger('reset')
+  $('#change-password-card').hide()
   display.homePage()
   authMessages.changePwSuccess()
 }
-const changePasswordFailure = function (response) {
+const changePasswordFailure = function () {
   authMessages.changePwFailure()
 }
 
-const signOutSuccess = function (response) {
+const signOutSuccess = function () {
+  store.user = ''
+  store.courses = ''
   display.signInPage()
+  authMessages.signOutSuccess()
 }
 
-const signOutFailure = function (response) {
-  console.log('Failed to sign out, try again')
+const signOutFailure = function () {
+  authMessages.signOutFailure()
 }
 
 module.exports = {
