@@ -2,7 +2,6 @@ const config = require('../config')
 const store = require('./../store')
 
 const signIn = function (data) {
-  console.log('Data for api signIn', data)
   return $.ajax({
     method: 'POST',
     url: `${config.apiUrl}/sign-in`,

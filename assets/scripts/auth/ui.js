@@ -14,9 +14,9 @@ const signInFailure = function () {
 }
 
 const signUpSuccess = function (response) {
-  $('#error-message').text('Thank you for signing up!')
   $('form').trigger('reset')
   display.homePage()
+  authMessages.signUpSuccess()
 }
 
 const signUpFailure = function (response) {

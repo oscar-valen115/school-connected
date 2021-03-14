@@ -21,6 +21,7 @@ $(() => {
   // Course events
   $('#create-course-modal').on('submit', courseEvents.onCreateCourse)
   $('#nav-view-courses').on('click', courseEvents.onGetCourses)
-  $('#update-course-modal').on('submit', courseEvents.onUpdateCourse)
+  $('#course-posts-frame').on('click', '.update-course', display.updateCourseModal)
+  $('#course-update-frame').on('submit', '.update-course-modal', courseEvents.onUpdateCourse)
   $('#course-posts-frame').on('click', '.course-delete', courseEvents.onDeleteCourse)
 })

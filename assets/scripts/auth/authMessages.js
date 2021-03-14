@@ -11,6 +11,12 @@ const signInFailure = function () {
     $('#sign-in-failure').removeClass('show')
   }, 3000)
 }
+const signUpSuccess = function () {
+  $('#under-nav-message').addClass('alert-success show').html('You have successfully signed up!')
+  setTimeout(function () {
+    $('#under-nav-message').removeClass('alert-success show').html('')
+  }, 3000)
+}
 
 const changePwFailure = function () {
   $('#error-message').text('Password change failed!')
@@ -25,6 +31,7 @@ const changePwSuccess = function () {
 module.exports = {
   signInSuccess,
   signInFailure,
+  signUpSuccess,
   changePwFailure,
   changePwSuccess
 }

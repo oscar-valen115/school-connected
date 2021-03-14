@@ -21,16 +21,17 @@ const onGetCourses = function (event) {
 const onUpdateCourse = function (event) {
   event.preventDefault()
   const form = event.target
-  const data = getFormFields(form)
-  console.log('data event: ', data)
-  api.updateCourse(data, data.course.id)
-    .then(ui.UpdateCourseSuccessful)
-    .catch(ui.UpdateCourseFailure)
+  const courseData = getFormFields(form)
+  const id = $(form).data('id')
+  api.updateCourse(id, courseData)
+    .then(ui.updateCourseSuccess)
+    .catch(ui.updateCourseFailure)
 }
 
 const onDeleteCourse = function (event) {
   event.preventDefault()
   console.log('event data: ', event)
+  console.log('Event Data Attribute info: ', event.data.id)
   const id = event.target.dataset.id
   api.deleteCourse(id)
     .then(ui.DeleteCourseSuccess)
