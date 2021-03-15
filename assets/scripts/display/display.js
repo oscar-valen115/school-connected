@@ -1,46 +1,35 @@
 // Auth pages
 const signInPage = function () {
-  $('#nav-resources, #nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').hide()
-  $('#sign-up-card').hide()
-  $('#change-password-card').hide()
-  $('#logged-in-user').hide()
-  $('#course-posts-frame').hide()
-  $('#create-daily-assignment-posts').hide()
-  $('#daily-assignment-posts').hide()
+  hideAllSections()
   $('#sign-in-card').show()
 }
 const signUpPage = function () {
-  $('#nav-resources, #nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').hide()
-  $('#change-password-card').hide()
-  $('#logged-in-user').hide()
-  $('#course-posts-frame').hide()
-  $('#create-daily-assignment-posts').hide()
-  $('#daily-assignment-posts').hide()
-  $('#sign-in-card').hide()
+  hideAllSections()
   $('#sign-up-card').show()
 }
 
 const homePage = function () {
-  $('#sign-in-card').hide()
+  hideAllSections()
   $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').show()
   $('#logged-in-user').show()
   $('#daily-assignment-posts').show()
+  $('#overdue-sidebar').show()
+  $('#upcoming-sidebar').show()
 }
 const changePwPage = function () {
-  $('#sign-up-card').hide()
-  $('#logged-in-user').hide()
-  $('#course-posts-frame').hide()
-  $('#create-daily-assignment-posts').hide()
-  $('#daily-assignment-posts').hide()
-  $('#sign-in-card').hide()
+  hideAllSections()
+  $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').show()
   $('#change-password-card').show()
 }
 
 // Course pages
 
 const viewCoursesPage = function () {
-  $('#daily-assignment-posts').hide()
+  hideAllSections()
+  $('#nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').show()
   $('#course-posts-frame').show()
+  $('#overdue-sidebar').show()
+  $('#upcoming-sidebar').show()
 }
 
 const updateCourseModal = function (event) {
@@ -83,11 +72,23 @@ const updateCourseModal = function (event) {
   $('#course-update-frame').html(updateModal)
 }
 
+const hideAllSections = function () {
+  $('#nav-resources, #nav-courses, #nav-profile, #nav-create-course, #nav-change-password, #nav-create-daily-post').hide()
+  $('#sign-in-card').hide()
+  $('#sign-up-card').hide()
+  $('#change-password-card').hide()
+  $('#course-posts-frame').hide()
+  $('#create-daily-assignment-posts').hide()
+  $('#daily-assignment-posts').hide()
+  $('#overdue-sidebar').hide()
+  $('#upcoming-sidebar').hide()
+}
 module.exports = {
   signInPage,
   signUpPage,
   homePage,
   changePwPage,
   viewCoursesPage,
-  updateCourseModal
+  updateCourseModal,
+  hideAllSections
 }
