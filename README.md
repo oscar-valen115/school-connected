@@ -18,3 +18,37 @@ Production URL: `https://school-connected-api.herokuapp.com`
 
 ![Profile Page](assets/Wireframes/Wireframe_ProfilePage_FullStackApp.png)
 
+### Version 1  
+
+For the initial version of this application, there will be only one user as I obtain user experience feedback and finish the backend logic.
+A User can:  
+- Sign up  
+- Sign in  
+- Sign out  
+- Change their password  
+- Create a course  
+- Read a course  
+- Update a course  
+- Delete a course  
+
+### Version 2
+
+Version 2 will contain two different users, a teacher and a student.
+
+Teachers will be able to:  
+- Create a course
+- Read a course
+- Update a course
+- Delete a course
+- Create a daily assignment post
+- Read a daily assignment post
+- Update a daily assignment post
+- Delete a daily assignment post
+- 
+
+Students will be able to:
+- Read a course
+- Read the daily assignments posted
+- Submit work to their teacher
+
+
