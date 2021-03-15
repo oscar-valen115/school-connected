@@ -10,11 +10,11 @@ Repository for the backend API you communicate with can be found [here]('https:/
 Production URL: `https://school-connected-api.herokuapp.com`
 ## Wireframes
 
-![Login Page]('assets/Wireframes/Wireframe_LoginPage_FullStackApp.png')
+![Login Page]('https://github.com/oscar-valen115/school-connected/blob/master/assets/Wireframes/Wireframe_LoginPage_FullStackApp.png')
 
-![Logged-in User Page]('assets/Wireframes/Wireframe_Logged_in_user_page_FullStackApp.png')
+![Logged-in User Page]('https://github.com/oscar-valen115/school-connected/blob/master/assets/Wireframes/Wireframe_Logged_in_user_page_FullStackApp.png')
 
-![Courses Page]('assets/Wireframes/Wireframe_courses_FullStackApp.png')
+![Courses Page]('https://github.com/oscar-valen115/school-connected/blob/master/assets/Wireframes/Wireframe_courses_FullStackApp.png')
 
-![Profile Page]('assets/Wireframes/Wireframe_ProfilePage_FullStackApp.png')
+![Profile Page]('https://github.com/oscar-valen115/school-connected/blob/master/assets/Wireframes/Wireframe_ProfilePage_FullStackApp.png')
 
