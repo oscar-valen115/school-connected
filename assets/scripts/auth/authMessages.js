@@ -11,11 +11,19 @@ const signInFailure = function () {
     $('#sign-in-message').removeClass('alert-danger show').html('')
   }, 3000)
 }
-
+/** 
+ * * Will go back to this later
 const signUpSuccess = function () {
   $('#under-nav-message').addClass('alert-success show').html('You have successfully signed up!')
   setTimeout(function () {
     $('#under-nav-message').removeClass('alert-success show').html('')
+  }, 3000)
+}
+*/
+const signUpSuccess = function () {
+  $('#sign-in-message').addClass('alert-success show').html('You have signed up successfully! Please now log in')
+  setTimeout(function () {
+    $('#sign-in-message').removeClass('alert-success show').html('')
   }, 3000)
 }
 

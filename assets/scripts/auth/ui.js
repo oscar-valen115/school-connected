@@ -13,10 +13,19 @@ const signInFailure = function () {
   authMessages.signInFailure()
 }
 
+/**
+ * * Will go back to this later.
 const signUpSuccess = function () {
   $('form').trigger('reset')
   $('#sign-up-card').hide()
   display.homePage()
+  authMessages.signUpSuccess()
+}
+*/
+
+const signUpSuccess = function () {
+  $('form').trigger('reset')
+  display.signInPage()
   authMessages.signUpSuccess()
 }
 
